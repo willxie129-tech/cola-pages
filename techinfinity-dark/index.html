@@ -588,7 +588,8 @@
         for(var i = 0; i < entries.length; i++){
           if(entries[i].isIntersecting){
             entries[i].target.classList.add("visible");
-            io.unobserve(entries[i].target);
+          } else {
+            entries[i].target.classList.remove("visible"); /* 出屏重置，滚回重播 */
           }
         }
       }, {threshold:.15, rootMargin:"0px 0px -40px 0px"});
